@@ -26,7 +26,7 @@ public class MainActivity extends Activity {
     private boolean visible;
     private int position;
     private SeekBar seekBar;
-    private Button btnPlay,btnPause,btnStop;
+    private Button btnPlay,btnPause,btnStop,btnBuscar;
     private LinearLayout botonera;
 
 
@@ -65,8 +65,13 @@ public class MainActivity extends Activity {
 
         btnStop = (Button) this.findViewById(R.id.btnStop);
         btnStop.setOnClickListener(new ClickEvent());
+
+        btnBuscar=(Button) this.findViewById(R.id.btnBuscar);
+        btnStop.setOnClickListener(new ClickEvent());
+
         botonera=(LinearLayout)this.findViewById(R.id.botonera);
         botonera.setVisibility(View.INVISIBLE);
+
         vv.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -96,18 +101,20 @@ public class MainActivity extends Activity {
         public void run() {
             if (seekBar != null) {
                 seekBar.setProgress(vv.getCurrentPosition());
-            }
-            if (vv.isPlaying()) {
+            }if (vv.isPlaying()) {
                 seekBar.postDelayed(onEverySecond, 500);
             }if(vv.isPlaying()!=true){
                 seekBar.postDelayed(onEverySecond, 0);
             }
-
         }
     };
 
     //para buscar videos.
     public void seleccionar(View view){
+        onPause();
+        position=0;
+        seekBar.setProgress(0);
+        vv.seekTo(0);
         Intent i = new Intent (Intent.ACTION_PICK, MediaStore.Video.Media.INTERNAL_CONTENT_URI);
         startActivityForResult(i, CARGAR_VIDEO);
     }
