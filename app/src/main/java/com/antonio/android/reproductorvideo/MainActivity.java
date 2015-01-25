@@ -67,7 +67,6 @@ public class MainActivity extends Activity {
         btnStop.setOnClickListener(new ClickEvent());
 
         btnBuscar=(Button) this.findViewById(R.id.btnBuscar);
-        btnStop.setOnClickListener(new ClickEvent());
 
         botonera=(LinearLayout)this.findViewById(R.id.botonera);
         botonera.setVisibility(View.INVISIBLE);
