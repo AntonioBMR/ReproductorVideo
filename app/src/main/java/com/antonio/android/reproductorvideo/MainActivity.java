@@ -17,7 +17,7 @@ import android.widget.SeekBar;
 import android.widget.Toast;
 import android.widget.VideoView;
 
-/* producto realizado por AntonioBMR inc.*/
+/* producto realizado por AntonioBMR corp.*/
 
 public class MainActivity extends Activity {
     private static int REPRODUCIR_VIDEO=1;
